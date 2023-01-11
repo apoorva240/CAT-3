@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <form ng-submit="getData()">
+        <div class="mb-3 mt-4">
+            <label for="delete" class="form-label">Select Department</label>
+            <select class="form-select form-select-lg" ng-model="DEPARTMENT" id="" required ng-change="getData()">
+                <option selected disabled value="text">Select one</option>
+                <option value="Testing">Testing</option>
+                <option value="Deployment">Deployment</option>
+                <option value="Advertising">Advertising</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-center">
+            <input type="submit" value="Search" class="btn btn-info" />
+        </div>
+        </form>
+        <section id="tableSection" class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-primary">
+                        <th scope="col">EMP_Id</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">DEPARTMENT</th>
+                        <th scope="col">SALARY</th>
+                        <th scope="col">LOCATION</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas">
+                        <td scope="row">{{data.id}}</td>
+                        <td>{{data.emp_id}}</td>
+                        <td>{{data.emp_name}}</td>
+                        <td>{{data.emp_dept}}</td>
+                        <td>{{data.emp_salary}}</td>
+                        <td>{{data.emp_location}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>
